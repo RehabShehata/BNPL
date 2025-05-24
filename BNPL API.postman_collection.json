@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "411d7749-345e-46b3-a240-625b735cad83",
+		"name": "BNPL API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "414860",
+		"_collection_link": "https://speeding-meteor-530665.postman.co/workspace/Btech~2c697713-6fea-43e1-81a5-f3c63e271b9f/collection/414860-411d7749-345e-46b3-a240-625b735cad83?action=share&source=collection_link&creator=414860"
+	},
+	"item": [
+		{
+			"name": "Login - Get Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"merchant1\",\n  \"password\": \"test1234\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Plan (Merchant)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 1000,\n  \"customer_email\": \"customer@example.com\",\n  \"num_installments\": 4,\n  \"start_date\": \"2025-06-01\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/plans",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Plans (User/Merchant)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/plans",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pay Installment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/installments/3/pay",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"installments",
+						"3",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
