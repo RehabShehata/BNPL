@@ -81,7 +81,7 @@ merchant = User.objects.create_user(
 
 # Create a customer
 customer = User.objects.create_user(
-    username="customer7", email="customer7@example.com", password="test1234", is_merchant=False
+    username="customer1", email="customer1@example.com", password="test1234", is_merchant=False
 )
 
 Run the backend server:
@@ -94,8 +94,7 @@ cd bnpl-frontend
 Install dependencies:
 
 npm install
-# or
-yarn install
+
 Configure environment variables:
 
 Create a .env file in bnpl-frontend with:
@@ -104,7 +103,5 @@ REACT_APP_API_BASE_URL=http://localhost:8000
 
 Run the React development server:
 npm start
-# or
-yarn start
 The app will be available at http://localhost:3000
 
